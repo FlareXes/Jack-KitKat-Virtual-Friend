@@ -27,5 +27,6 @@ def takecmd():
     return data.lower()
 
 if __name__ == '__main__':
-    data = takecmd()
-    speak(data)
+    from Accounts.accounts import Account
+    login_to = Account('account', 'thisispssword')
+    login_to.instagram()
