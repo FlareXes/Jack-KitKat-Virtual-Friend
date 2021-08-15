@@ -4,7 +4,7 @@ from multiprocessing import Process
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[5].id)       # Best voices 3, 5
+engine.setProperty('voice', voices[6].id)       # Best voices 3, 6, 2  MArkm
 engine.setProperty('rate', 170)
 
 

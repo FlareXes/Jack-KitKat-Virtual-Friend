@@ -9,7 +9,6 @@ def logincred(acctologin: str):
     # pwd = takecmd()
     pwd = "actully jack i really don't care about my passwords"
     scrt = decryptPassword(pwd)
-
     for accDetails in scrt.split():
         a = accDetails.split('--')
         if a[0] == acctologin:

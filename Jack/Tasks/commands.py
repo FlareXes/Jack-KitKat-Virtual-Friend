@@ -1,5 +1,6 @@
 import webbrowser
 import wikipedia
+from Essentials.DataFilters import takecmd, wakeandsleep
 from Jack.jvoice import speak
 import urllib
 import time
@@ -18,14 +19,23 @@ def UserInputFilter(UserInput, cmdToFilters):
     return data
 
 class Task:
+    def jsleep(self, UserInput: str):
+        speak("Ok, I'm Down")
+        if 'between me and rivera' in UserInput or 'can you please' in UserInput or 'go to sleep' in UserInput:
+            wakeandsleep('sleep')
+
     def wikipedia(self, UserInput: str):
-        speak('Give Me A Second')
-        cmdToFilters = ['about', 'related to', 'related']
-        data = UserInputFilter(UserInput, cmdToFilters)
-        print('\nFor more information check out this page   👇👇👇')
-        print(f'https://en.wikipedia.org/wiki/' + urllib.parse.quote(data))
-        results = wikipedia.summary(data, sentences=2)
-        speak(results)
+        try:
+            speak('Give Me A Second')
+            cmdToFilters = ['about', 'related to', 'related']
+            data = UserInputFilter(UserInput, cmdToFilters)
+            print('\nFor more information check out this page   👇👇👇')
+            print(f'https://en.wikipedia.org/wiki/' + urllib.parse.quote(data))
+            results = wikipedia.summary(data, sentences=2)
+            speak(results)
+        except wikipedia.exceptions.PageError as e:
+            print("\nPage Not Found!")
+
 
     def youtube(self, UserInput: str):
         if UserInput in "open youtube":
@@ -61,16 +71,6 @@ class Task:
         speak("OpenDNS Server will ready to use in 10 seconds")
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def rivera(self):
+        speak("Okayy, She Will Be Alive Under 30 Sec")
+        system(r"python C:\Users\as808\OneDrive\Documents\KitKat\Rivera\rmain.py")

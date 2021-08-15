@@ -35,6 +35,10 @@ def parrotos():
     parrot_os = 'D:\\Documents\\VirtualBox VMs\\Parrot Security\\Parrot Security.vbox'
     os.startfile(parrot_os)
 
+def ubuntuserver():
+    ubuntu_server = 'D:\\Virtual Box\\CodeServer\\CodeServer.vbox'
+    os.startfile(ubuntu_server)
+
 def vmware():
     vmware_loc = 'C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\VMware\\VMware Workstation Pro'
     os.startfile(vmware_loc)

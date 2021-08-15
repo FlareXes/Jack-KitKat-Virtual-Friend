@@ -2,7 +2,6 @@ import os
 import random
 import pyjokes
 from Rivera.rvoice import speak
-from Rivera.Rchatbot.rchatbot import importcoroutine
 from Essentials.DataFilters import takecmd
 
 def joke():
@@ -23,21 +22,13 @@ def UserInputFilter(UserInput, cmdToFilters):
     return data
 
 
-def talk():
-    search = importcoroutine()
-    search.__next__()
-    while True:
-        data = takecmd()
-        search.send(data)
-
-
 class Task:
     def music(self, UserInput):
         music_dir = 'E:\CONFIDANCIAL INFORMATION\ABHI SONGS\English Song'
         choreography_dir = 'E:\CONFIDANCIAL INFORMATION\ABHI SONGS\Choreography'
         random_dir = random.choice([music_dir, choreography_dir])
 
-        if 'no specifications' in UserInput:
+        if 'no specification' in UserInput:
             songs = random.choice(os.listdir(random_dir))
             os.startfile(os.path.join(random_dir, songs))
             speak("Here we are!")

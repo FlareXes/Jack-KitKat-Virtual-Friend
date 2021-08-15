@@ -28,7 +28,7 @@ def encryptPassword(masterpassword):
 
 def decryptPassword(masterpassword):
     try:
-        with open("Jack/Accounts/PassMag/config.json", "rb") as config_file:
+        with open("C:\\Users\\as808\\OneDrive\\Documents\\KitKat\\Jack\\Accounts\\PassMag\\config.json", "rb") as config_file:
             data = json.load(config_file)
         salt = b64decode(data['salttt'])
         cipher_text = b64decode(data['saltttt'])
