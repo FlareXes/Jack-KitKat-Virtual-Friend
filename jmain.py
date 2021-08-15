@@ -13,16 +13,17 @@ def category(UserInput: str) -> str:
             'search': ['google', 'search', 'related'],
             'youtube': ['youtube', 'open', 'related', 'search'],
             'shutdown': ['shutdown', 'system'],
-            'account': ['login', 'log', 'in', 'sign', 'up', 'instagram', 'facebook', 'account', 'discord']}
+            'account': ['login', 'log', 'open', 'in', 'sign', 'up', 'instagram', 'facebook', 'account', 'discord'],
+            'rivera': ['rivera', 'where', 'call', ],
+            'changedns': ['dns', 'opendns', 'domain', 'name', 'system', 'change'],
+            'askqna': ['enable', 'qna', 'question', 'mode', 'frame', 'alpha'],
+            'openapp': ['open', 'vscode', 'parrot', 'server', 'security', 'os', 'start', 'go']}
         matchlengthdict = {}
         for category in categories.items():
             length = len(set(category[1]).intersection(UserInputList))
             # Special case for {on category}
             if f"{category} for" in UserInput:
                 length += 1
-
-            # if UserInputList[-2:] and category[0] == ['on', str(category[0])]:
-            #     length += 1
             newdict = {category[0]: length}
             matchlengthdict.update(newdict)
         print(matchlengthdict)
@@ -50,3 +51,11 @@ if __name__ == '__main__':
                 ask.shutdown()
             elif cat == 'account':
                 account_selecter_and_opener(voiceInput)
+            elif cat == 'rivera':
+                ask.rivera()
+            elif cat == 'changedns':
+                ask.changedns()
+            elif cat == 'askqna':
+                ask.askqna()
+            elif cat == 'openapp':
+                ask.openapp(voiceInput)

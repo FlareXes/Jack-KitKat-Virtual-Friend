@@ -1,6 +1,7 @@
 import webbrowser
 import wikipedia
-from Essentials.DataFilters import takecmd, wakeandsleep
+from Essentials.DataFilters import wakeandsleep
+from Jack.Tasks.APICALLS import ApiTask
 from Jack.jvoice import speak
 import urllib
 import time
@@ -8,7 +9,7 @@ from os import system
 
 
 
-def UserInputFilter(UserInput, cmdToFilters):
+def UserInputFilter(UserInput: str, cmdToFilters: list) -> str:
     data = ''
     for i in cmdToFilters:
         if i in UserInput:
@@ -54,6 +55,7 @@ class Task:
         data = UserInputFilter(UserInput, cmdToFilters)
         webbrowser.open('https://duckduckgo.com/?q=' + urllib.parse.quote(data))
 
+
     def shutdown(self):
         speak("Alert! System is about to shutdown soon")
         system('shutdown /s /t 1')
@@ -72,5 +74,15 @@ class Task:
 
 
     def rivera(self):
-        speak("Okayy, She Will Be Alive Under 30 Sec")
-        system(r"python C:\Users\as808\OneDrive\Documents\KitKat\Rivera\rmain.py")
+        speak("Okay, She Will Be Alive Under 30 Sec")
+        system(r"C:\Users\as808\OneDrive\Documents\KitKat\file.bat")
+
+
+    def askqna(self):
+        api = ApiTask()
+        api.wolframalpha()
+
+
+    def openapp(self, UserInput: str):
+        cmdToFilters = ['can', 'you', 'open', 'go', 'to', 'start']
+        data = UserInputFilter(UserInput, cmdToFilters)
