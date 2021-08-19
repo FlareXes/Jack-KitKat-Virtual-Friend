@@ -42,8 +42,8 @@ class ApiTask():
     def twiliocall(self):
         # Find your Account SID and Auth Token at twilio.com/console
         # and set the environment variables. See http://twil.io/secure
-        account_sid = 'ACe279fadef07678e69535cfde42fe1704'
-        auth_token = '3081a8c9428fdf5ef4c7746e6b52ddfd'
+        account_sid = '8e69535cfd'
+        auth_token = '4c'
         client = Client(account_sid, auth_token)
 
         call = client.calls.create(
@@ -51,21 +51,21 @@ class ApiTask():
             twiml='<Response><Say>I Think You Got My Point. Don\'t Worry About Rivera.\
              After This She Will Be My Priority. See You There Soon Ra-Dou-Woo. \
              And Yeah! She\'s Is Doing Pretty Dam Work</Say></Response>',
-            to='+918955349252',
-            from_='+15162724924'
+            to='+9152',
+            from_='+'
         )
 
 
     def twiliosms(self):
         # Find your Account SID and Auth Token at twilio.com/console
         # and set the environment variables. See http://twil.io/secure
-        account_sid = 'ACe279fadef07678e69535cfde42fe1704'
-        auth_token = '3081a8c9428fdf5ef4c7746e6b52ddfd'
+        account_sid = 'Ae1704'
+        auth_token = '3086e6b52'
         client = Client(account_sid, auth_token)
 
         message = client.messages \
             .create(
             body="Hey Jack! Here, I Think You Got My Point",
-            from_='+15162724924',
-            to='+918955349252'
+            from_='+1924',
+            to='+49'
         )

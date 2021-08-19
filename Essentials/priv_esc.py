@@ -17,14 +17,15 @@ def request_to_priv_esc_() -> bool:
             speak("Okay, Rivera! Has Been Requested For Privilege Escalation. Should I Authorize Her")
 
 def danger_alert(danger_level: str):
+    print("This was the critical action")
+    exit()
+    '''
     project_loc = 'C:\\Users\\as808\\OneDrive\\Documents\\KitKat'
     if danger_level == 'critical':
-        # -------
+        # First
+        os.remove('C:\\Users\\as808\\OneDrive\\Documents\\KitKat\\Jack\\Accounts\\PassMag\\testing.json')
 
-        # os.remove('C:\\Users\\as808\\OneDrive\\Documents\\KitKat\\Jack\\Accounts\\PassMag\\testing.json')
-
-        # -------
-
+        # Second
         import smtplib
         to = "jackdaclin@gmail.com"
         content = "Warning Someone Is There!"
@@ -35,13 +36,11 @@ def danger_alert(danger_level: str):
         server.sendmail('jackdaclin@gmail.com', to, content)
         server.close()
 
-        # -------
-
+        # Third
         twilio = ApiTask()
         twilio.twiliosms()
         twilio.twiliocall()
-
-        # -------
+        
+        # Forth
         # shutil.rmtree('loc')
-
-# danger_alert('critical')
+    '''
