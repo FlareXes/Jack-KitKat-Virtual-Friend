@@ -17,7 +17,7 @@ def category(UserInput: str) -> str:
             'rivera': ['rivera', 'where', 'call', ],
             'changedns': ['dns', 'opendns', 'domain', 'name', 'system', 'change'],
             'askqna': ['enable', 'qna', 'question', 'mode', 'frame', 'alpha'],
-            'openapp': ['open', 'vscode', 'parrot', 'server', 'security', 'os', 'start', 'go']}
+            'openapp': ['start', 'open', 'go', 'please', 'vscode', 'parrot', 'ubuntu', 'server', 'security', 'os']}
         matchlengthdict = {}
         for category in categories.items():
             length = len(set(category[1]).intersection(UserInputList))

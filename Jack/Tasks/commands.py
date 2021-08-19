@@ -2,11 +2,11 @@ import webbrowser
 import wikipedia
 from Essentials.DataFilters import wakeandsleep
 from Jack.Tasks.APICALLS import ApiTask
+from Jack.Tasks import opencommands
 from Jack.jvoice import speak
 import urllib
 import time
 from os import system
-
 
 
 def UserInputFilter(UserInput: str, cmdToFilters: list) -> str:
@@ -18,6 +18,7 @@ def UserInputFilter(UserInput: str, cmdToFilters: list) -> str:
     if data == '':
         data = UserInput
     return data
+
 
 class Task:
     def jsleep(self, UserInput: str):
@@ -37,7 +38,6 @@ class Task:
         except wikipedia.exceptions.PageError as e:
             print("\nPage Not Found!")
 
-
     def youtube(self, UserInput: str):
         if UserInput in "open youtube":
             webbrowser.open('https://www.youtube.com')
@@ -55,11 +55,9 @@ class Task:
         data = UserInputFilter(UserInput, cmdToFilters)
         webbrowser.open('https://duckduckgo.com/?q=' + urllib.parse.quote(data))
 
-
     def shutdown(self):
         speak("Alert! System is about to shutdown soon")
         system('shutdown /s /t 1')
-
 
     def changedns(self):
         # netsh interface ipv4 set dns name="Wi-Fi" static 8.8.4.4
@@ -72,17 +70,24 @@ class Task:
         system("ipconfig /release & ipconfig /renew")
         speak("OpenDNS Server will ready to use in 10 seconds")
 
-
     def rivera(self):
         speak("Okay, She Will Be Alive Under 30 Sec")
         system(r"C:\Users\as808\OneDrive\Documents\KitKat\file.bat")
-
 
     def askqna(self):
         api = ApiTask()
         api.wolframalpha()
 
-
     def openapp(self, UserInput: str):
-        cmdToFilters = ['can', 'you', 'open', 'go', 'to', 'start']
-        data = UserInputFilter(UserInput, cmdToFilters)
+        cmdToFilters = ['start', 'open', 'to', 'go', 'please', 'can', 'you']
+        try:
+            data = UserInputFilter(UserInput, cmdToFilters).strip().split()
+            print(data)
+            speak("Just wait a second")
+            StartApp = opencommands.StartApp()
+            app_values = StartApp.funcDict.keys()
+            for filtered_app in data:
+                if filtered_app in app_values:
+                    StartApp.funcDict[filtered_app]()
+        except:
+            speak("I don't have control over this particular application")
