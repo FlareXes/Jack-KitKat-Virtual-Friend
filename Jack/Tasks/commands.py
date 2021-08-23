@@ -72,7 +72,7 @@ class Task:
 
     def rivera(self):
         speak("Okay, She Will Be Alive Under 30 Sec")
-        system(r"C:\Users\as808\OneDrive\Documents\KitKat\file.bat")
+        system("C:\\Users\\as808\\OneDrive\\Documents\\KitKat\\Statup\\boot_rivera_for_jack.bat")
 
     def askqna(self):
         api = ApiTask()

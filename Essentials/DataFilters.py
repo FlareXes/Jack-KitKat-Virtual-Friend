@@ -56,3 +56,13 @@ def UserInputFilter(UserInput: str, cmdToFilters: list) -> str:
     if data == '':
         data = UserInput
     return data.strip()
+
+
+def delsleepfiles(UserFileDelete: str):
+    jack_sleep_loc = '../KitKat/Essentials/jsleep.txt'
+    rivera_sleep_loc = '../KitKat/Essentials/rsleep.txt'
+
+    if UserFileDelete == 'jack' and os.path.exists(jack_sleep_loc):
+        os.remove(jack_sleep_loc)
+    elif UserFileDelete == 'rivera' and os.path.exists(rivera_sleep_loc):
+        os.remove(rivera_sleep_loc)

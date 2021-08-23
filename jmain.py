@@ -1,4 +1,4 @@
-from Essentials.DataFilters import takecmd, wakeandsleep
+from Essentials.DataFilters import takecmd, delsleepfiles
 from Jack.Accounts.PassMag.passmag import account_selecter_and_opener
 from Jack.Tasks.commands import Task
 
@@ -34,12 +34,13 @@ def category(UserInput: str) -> str:
 
 
 if __name__ == '__main__':
+    delsleepfiles('jack')
     while True:
         voiceInput = takecmd(vid='j')
         cat = category(voiceInput)
 
         if voiceInput != '!@#$%^&*()' or cat != 'NoCat':
-            print(voiceInput+"\n")
+            print(voiceInput + "\n")
             ask = Task()
             if cat == 'youtube':
                 ask.youtube(voiceInput)

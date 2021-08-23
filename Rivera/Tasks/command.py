@@ -7,20 +7,26 @@ from Essentials.DataFilters import takecmd
 
 
 def UserInputFilter(UserInput, cmdToFilters):
-    data = ''
+    datalendict = {}
     for i in cmdToFilters:
         if i in UserInput:
             data = UserInput.split(i)[1]
-            break
+            newdict = {data: len(data)}
+            datalendict.update(newdict)
+    try:
+        data = min(datalendict, key=datalendict.get)
+    except ValueError as e:
+        data = UserInput
+
     if data == '':
         data = UserInput
-    return data
+    return data.strip()
 
 
 class Task:
     def music(self, UserInput):
-        music_dir = 'E:\CONFIDANCIAL INFORMATION\ABHI SONGS\English Song'
-        choreography_dir = 'E:\CONFIDANCIAL INFORMATION\ABHI SONGS\Choreography'
+        music_dir = 'E:\\CONFIDANCIAL INFORMATION\\ABHI SONGS\\English Song'
+        choreography_dir = 'E:\\CONFIDANCIAL INFORMATION\\ABHI SONGS\\Choreography'
         random_dir = random.choice([music_dir, choreography_dir])
 
         if 'no specification' in UserInput:
@@ -28,7 +34,10 @@ class Task:
             os.startfile(os.path.join(random_dir, songs))
             speak("Here we are!")
         else:
-            speak('absolutely... but before we go further, any specifications!!!')
+            empz1 = 'absolutely... but before we go further, any specifications!!!'
+            empz2 = 'Okay would you like me to play anything special?'
+            speakEmpz = random.choice([empz1, empz2])
+            speak(speakEmpz)
             spec = takecmd()
             if 'choreography on' in spec or 'choreography of' in spec or 'choreography by' in spec:
                 cmdToFilters = ['choreography on', 'choreography of']
@@ -57,7 +66,7 @@ class Task:
                 os.startfile(os.path.join(music_dir, songs))
                 speak("Okay, then here we go!")
             else:
-                cmdToFilters = ['any', 'can we have', 'song by', 'cover by', 'listen']
+                cmdToFilters = ['can we have', 'song by', 'any', 'cover by', 'listen']
                 data = UserInputFilter(spec, cmdToFilters).strip()
                 print(data)
                 with os.scandir(music_dir) as dirs:

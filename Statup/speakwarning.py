@@ -1,9 +1,6 @@
-import shutil
-
 import pyttsx3
 import time
-import os
-import shutil
+
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -16,4 +13,4 @@ def speak(audio):
     engine.runAndWait()
 
 time.sleep(60)
-speak("hey welcome welcome Do you know what i mean")
+speak("hey welcome... you know what i mean")
