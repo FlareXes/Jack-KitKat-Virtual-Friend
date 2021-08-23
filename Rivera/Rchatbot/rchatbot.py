@@ -43,9 +43,9 @@ def importcoroutine():
             ask = Task()
             if cat == 'music':
                 ask.music(text)
-            if cat == 'joke':
+            elif cat == 'joke':
                 ask.joke()
-            if cat == 'privesc':
+            elif cat == 'privesc':
                 ask.privesc()
         else:
             def clean_up_sentence(sentence):
@@ -100,7 +100,8 @@ def importcoroutine():
 
             # predict the class and speak any random string
             ints = predict_class(text, model)
+            intsconf = float(ints[0]['probability'])
             res = getResponse(ints, intents)
-            if res is not None:
+            if res is not None and intsconf >= 0.95:
                 print(res)
                 speak(res)

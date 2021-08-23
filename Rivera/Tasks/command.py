@@ -40,7 +40,7 @@ class Task:
             speak(speakEmpz)
             spec = takecmd()
             if 'choreography on' in spec or 'choreography of' in spec or 'choreography by' in spec:
-                cmdToFilters = ['choreography on', 'choreography of']
+                cmdToFilters = ['choreography on', 'choreography of', 'yeah']
                 data = UserInputFilter(spec, cmdToFilters).strip()
                 print(data)
                 with os.scandir(choreography_dir) as dirs:
@@ -66,7 +66,7 @@ class Task:
                 os.startfile(os.path.join(music_dir, songs))
                 speak("Okay, then here we go!")
             else:
-                cmdToFilters = ['can we have', 'song by', 'any', 'cover by', 'listen']
+                cmdToFilters = ['can we have', 'song by', 'any', 'cover by', 'listen', 'yeah']
                 data = UserInputFilter(spec, cmdToFilters).strip()
                 print(data)
                 with os.scandir(music_dir) as dirs:
