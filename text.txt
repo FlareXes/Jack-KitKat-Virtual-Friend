@@ -1,1 +1,1 @@
-this is me here guys whats up
+vscode://vscode.github-authentication/did-authenticate?windowid=4&code=27b37c350513a8e0f6d7&state=238b3b94-2c08-413d-b38e-bbae906e487a
