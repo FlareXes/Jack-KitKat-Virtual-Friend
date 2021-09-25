@@ -34,7 +34,7 @@ def category(UserInput: str) -> str:
 
 
 if __name__ == '__main__':
-    delsleepfiles('jack')
+    delsleepfiles('jack')                   # Delete Sleeping Files If Exists After New Start
     while True:
         voiceInput = takecmd(vid='j')
         cat = category(voiceInput)

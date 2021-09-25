@@ -1,18 +1,7 @@
 import wolframalpha
 from twilio.rest import Client
-from Essentials.DataFilters import takecmd
+from Essentials.DataFilters import takecmd, UserInputFilter
 from Jack.jvoice import speak
-
-
-def UserInputFilter(UserInput, cmdToFilters):
-    data = ''
-    for i in cmdToFilters:
-        if i in UserInput:
-            data = UserInput.split(i)[1]
-            break
-    if data == '':
-        data = UserInput
-    return data
 
 
 class ApiTask():

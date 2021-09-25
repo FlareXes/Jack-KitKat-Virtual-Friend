@@ -29,7 +29,7 @@ class Task:
         choreography_dir = 'E:\\CONFIDANCIAL INFORMATION\\ABHI SONGS\\Choreography'
         random_dir = random.choice([music_dir, choreography_dir])
 
-        if 'no specification' in UserInput:
+        if 'no specification' in UserInput or 'without specification' in UserInput:
             songs = random.choice(os.listdir(random_dir))
             os.startfile(os.path.join(random_dir, songs))
             speak("Here we are!")

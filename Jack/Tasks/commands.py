@@ -1,23 +1,12 @@
-import webbrowser
-import wikipedia
-from Essentials.DataFilters import wakeandsleep
+from Essentials.DataFilters import wakeandsleep, UserInputFilter
 from Jack.Tasks.APICALLS import ApiTask
 from Jack.Tasks import opencommands
 from Jack.jvoice import speak
+from os import system
+import webbrowser
+import wikipedia
 import urllib
 import time
-from os import system
-
-
-def UserInputFilter(UserInput: str, cmdToFilters: list) -> str:
-    data = ''
-    for i in cmdToFilters:
-        if i in UserInput:
-            data = UserInput.split(i)[1]
-            break
-    if data == '':
-        data = UserInput
-    return data
 
 
 class Task:

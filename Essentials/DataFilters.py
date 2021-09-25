@@ -22,6 +22,37 @@ def takecmd(vid='') -> str:
         return ''
 
 
+def UserInputFilter(UserInput, cmdToFilters):
+    datalendict = {}
+    for i in cmdToFilters:
+        if i in UserInput:
+            data = UserInput.split(i)[1]
+            newdict = {data: len(data)}
+            datalendict.update(newdict)
+    try:
+        data = min(datalendict, key=datalendict.get)
+    except ValueError as e:
+        data = UserInput
+
+    if data == '':
+        data = UserInput
+    return data.strip()
+
+
+'''
+def UserInputFilter(UserInput: str, cmdToFilters: list) -> str:
+    data = ''
+    for i in cmdToFilters:
+        if i in UserInput:
+            data = UserInput.split(i)[1]
+            break
+    if data == '':
+        data = UserInput
+    return data.strip()
+'''
+
+# < --  Sleeping Functionalities  -- >
+
 def wakeandsleep(vid: str, takecmddata='') -> str:
     sleep_loc = f'C:\\Users\\as808\\OneDrive\\Documents\\KitKat\\Essentials\\{vid}sleep.txt'
     try:
@@ -45,17 +76,6 @@ def wakeandsleep(vid: str, takecmddata='') -> str:
             return 'wake'
     except FileNotFoundError:
         pass
-
-
-def UserInputFilter(UserInput: str, cmdToFilters: list) -> str:
-    data = ''
-    for i in cmdToFilters:
-        if i in UserInput:
-            data = UserInput.split(i)[1]
-            break
-    if data == '':
-        data = UserInput
-    return data.strip()
 
 
 def delsleepfiles(UserFileDelete: str):
