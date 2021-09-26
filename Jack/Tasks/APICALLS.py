@@ -12,7 +12,7 @@ class ApiTask():
 
         while True:
             try:
-                UserInput = takecmd()
+                UserInput = takecmd(callExceptions=True)
                 if not 'stop wolfalpha' in UserInput:
                     cmdToFilters = ['what is the', 'who is']
                     data = UserInputFilter(UserInput, cmdToFilters)

@@ -1,8 +1,9 @@
 import speech_recognition as sr
 import os
+import time
 
 
-def takecmd(vid='') -> str:
+def takecmd(vid='', callExceptions=True) -> str:
     r = sr.Recognizer()
     r.energy_threshold = 2000
     with sr.Microphone(sample_rate=48000, chunk_size=2048) as source:
@@ -10,19 +11,28 @@ def takecmd(vid='') -> str:
         audio = r.listen(source)
     try:
         print('Recognizing...\n')
-        data = r.recognize_google(audio, language='en-in').lower()
-        print(data)
-        is_sleeping = wakeandsleep(vid, data)
-        if is_sleeping != 'sleep':
-            return data
+        recognized_data = r.recognize_google(audio, language='en-in').lower()
+        if callExceptions == False:
+            if recognized_data == 'sophie' or recognized_data == 'rivera':
+                print("------------------------------------------------------")
+                print('Rivera Listening...')
+
+                with sr.Microphone(sample_rate=48000, chunk_size=2048) as source:
+                    audio = r.listen(source)
+                print('Recognizing...\n')
+                data = r.recognize_google(audio, language='en-in').lower()
+                print(data)
+                return data
+            else:
+                return "Nothing To See Here"
         else:
-            return '!@#$%^&*()'
+            return recognized_data
     except Exception:
         print('\nI Didn\'t Got YOU\n')
         return ''
 
 
-def UserInputFilter(UserInput, cmdToFilters):
+def UserInputFilter(UserInput: str, cmdToFilters: list) -> str:
     datalendict = {}
     for i in cmdToFilters:
         if i in UserInput:
@@ -30,26 +40,17 @@ def UserInputFilter(UserInput, cmdToFilters):
             newdict = {data: len(data)}
             datalendict.update(newdict)
     try:
-        data = min(datalendict, key=datalendict.get)
+        dataWithMinLength = min(datalendict, key=datalendict.get)
+        if len(datalendict) > 1 and dataWithMinLength == '':
+            datalendict.pop(dataWithMinLength)
+            data = min(datalendict, key=datalendict.get)
+        else:
+            data = dataWithMinLength
     except ValueError as e:
         data = UserInput
-
-    if data == '':
-        data = UserInput
+         # if data == '': data = UserInput  (Use Them If Needed)
     return data.strip()
 
-
-'''
-def UserInputFilter(UserInput: str, cmdToFilters: list) -> str:
-    data = ''
-    for i in cmdToFilters:
-        if i in UserInput:
-            data = UserInput.split(i)[1]
-            break
-    if data == '':
-        data = UserInput
-    return data.strip()
-'''
 
 # < --  Sleeping Functionalities  -- >
 
