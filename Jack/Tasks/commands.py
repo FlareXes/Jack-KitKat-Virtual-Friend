@@ -2,6 +2,7 @@ from Essentials.DataFilters import wakeandsleep, UserInputFilter
 from Jack.Tasks.APICALLS import ApiTask
 from Jack.Tasks import opencommands
 from Jack.jvoice import speak
+from datetime import datetime, date
 from os import system
 import webbrowser
 import wikipedia
@@ -10,6 +11,16 @@ import time
 
 
 class Task:
+    def timing(self):
+        now = datetime.now().strftime("%H:%M")
+        print(f'\n------------ {now} ------------\n')
+        speak(f"It's {now}")
+
+    def day(self):
+        now = date.today()
+        print(f'\n------------ {now} ------------\n')
+        speak(f"It's {now}")
+
     def jsleep(self, UserInput: str):
         speak("Ok, I'm Down")
         if 'between me and rivera' in UserInput or 'can you please' in UserInput or 'go to sleep' in UserInput:

@@ -17,7 +17,9 @@ def category(UserInput: str) -> str:
             'rivera': ['rivera', 'where', 'call', ],
             'changedns': ['dns', 'opendns', 'domain', 'name', 'system', 'change'],
             'askqna': ['enable', 'qna', 'question', 'mode', 'frame', 'alpha'],
-            'openapp': ['start', 'open', 'go', 'please', 'vscode', 'parrot', 'ubuntu', 'server', 'security', 'os']}
+            'openapp': ['start', 'open', 'go', 'please', 'vscode', 'parrot', 'ubuntu', 'server', 'security', 'os', 'spotify'],
+            'timing': ['what', 'timing', 'time', 'now'],
+            'day': ['what', 'day', 'date', 'today']}
         matchlengthdict = {}
         for category in categories.items():
             length = len(set(category[1]).intersection(UserInputList))
@@ -60,3 +62,7 @@ if __name__ == '__main__':
                 ask.askqna()
             elif cat == 'openapp':
                 ask.openapp(voiceInput)
+            elif cat == 'timing':
+                ask.timing()
+            elif cat == 'day':
+                ask.day()

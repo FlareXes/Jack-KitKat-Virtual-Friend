@@ -3,7 +3,7 @@ import os
 import time
 
 
-def takecmd(vid='', callExceptions=True) -> str:
+def takecmd(vid='', callExceptions=False) -> str:
     r = sr.Recognizer()
     r.energy_threshold = 2000
     with sr.Microphone(sample_rate=48000, chunk_size=2048) as source:
