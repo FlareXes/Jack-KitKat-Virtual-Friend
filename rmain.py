@@ -6,5 +6,5 @@ if __name__ == '__main__':
     search = importcoroutine()
     search.__next__()
     while True:
-        UserInput = takecmd(vid='r')
+        UserInput = takecmd(True)
         search.send(UserInput)

@@ -9,15 +9,15 @@ def getHashMode(hashString):
     modeList = writeResult(HashID().identifyHash(hashString), outfile=None, hashcatMode=True)
     return modeList
 
-def crackHash():
-    hashString = 'd033e22ae348aeb5660fc2140aec35850c4da997'
+def crackHash(hashString):
+    # hashString = 'd033e22ae348aeb5660fc2140aec35850c4da997'
     mode = getHashMode(hashString)
     wordlist = '/home/hacker/Desktop/KitKat/Rivera/Hacker/wordlist/common.txt'
     subprocess.run(['hashcat', '-m', str(mode[0]), hashString, '--wordlist', wordlist])
     print()
     subprocess.run(['hashcat', '-m', str(mode[0]), hashString, '--wordlist', wordlist, '--show'])
 
-crackHash()
+# crackHash()
 
 # Hacker - 4baf5897963fc12d1cd8fe1a02eb48fb
 # hacker - d6a6bc0db10694a2d90e3a69648f3a03

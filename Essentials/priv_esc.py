@@ -8,7 +8,7 @@ import os
 def request_to_priv_esc_() -> bool:
     speak("Attention Please Rivera! Has Been Requested For Privilege Escalation. Should I Authorize Her")
     while True:
-        data = takecmd()
+        data = takecmd(True)
         if 'yes' in data:
             return True
         elif 'no' in data:

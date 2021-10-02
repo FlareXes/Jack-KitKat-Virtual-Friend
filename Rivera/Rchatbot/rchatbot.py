@@ -5,7 +5,9 @@ def category(UserInput: str) -> str:
     categories = {
         'music': ['can', 'have', 'music', 'play', 'songs', 'song'],
         'privesc': ['escalate', 'privileges', 'the'],
-        'joke': ['joke', 'jokes', 'can', 'crack', 'have']}
+        'joke': ['joke', 'jokes', 'can', 'crack', 'have'],
+        'nmap': ['nmap', 'scan', 'ports', 'open', 'perform', 'network'],
+        'dirb': ['directory', 'brute', 'force', 'hidden', 'dirbuster', 'gobuster']}
 
     length = 0
     matchlengthdict = {}

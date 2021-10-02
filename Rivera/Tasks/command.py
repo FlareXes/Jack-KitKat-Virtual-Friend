@@ -91,3 +91,32 @@ class Task:
             if os.name == 'nt':
                 speak("Just wait sir, i'm working on it")
                 danger_alert('critical')
+            else:
+                from Rivera.Hacker.Tools import nmap, dirb
+                from Rivera.Hacker.Tools.wpscan import WPSCAN
+                from Rivera.Hacker.Tools.hashcat import hashcat
+                from Rivera.Rchatbot.rchatbot import category
+                while True:
+                    UserInput = takecmd()
+                    cat = category(UserInput)
+                    
+                    if "know anything" in UserInput:
+                        break
+                    if cat == 'nmap':
+                        nmap.exec_()
+                    elif cat == 'dirb':
+                        dirb.exec_()
+                    elif cat == 'wpscan':
+                        target = input("Target URL: ")
+                        wpsc = WPSCAN(target)
+                        wpsc.wp_enumerate()
+                        wpsc.wp_bruteForce()
+                    elif cat == "hashcat":
+                        hashString = input("\nHash: ")
+                        hashcat.crackHash(hashString)
+                    else:
+                        speak("I don't know that")
+
+
+
+

