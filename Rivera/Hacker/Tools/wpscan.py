@@ -7,7 +7,7 @@ class WPSCAN:
     def wp_enumerate(self):
         subprocess.run(['wpscan', '--url', self.target, '-e', '--random-user-agent'])
 
-    def wp_bruteForce(self, wordlist='wordlist/common.txt', username='wordlist/common.txt', password='wordlist/common.txt', threads='1'):
+    def wp_bruteForce(self, wordlist='Rivera/Hacker/wordlist/common.txt', username='Rivera/Hacker/wordlist/common.txt', password='Rivera/Hacker/wordlist/common.txt', threads='60'):
         subprocess.run(['wpscan', '-U', username, '-P', wordlist, '--password-attack', 'wp-login', '--random-user-agent', '--url', self.target, '--max-threads', threads])
 
 

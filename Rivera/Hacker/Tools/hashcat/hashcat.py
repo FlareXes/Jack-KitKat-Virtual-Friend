@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import subprocess
-from hashID import writeResult
-from hashID import HashID
+from Rivera.Hacker.Tools.hashcat.hashID import writeResult
+from Rivera.Hacker.Tools.hashcat.hashID import HashID
 
 def getHashMode(hashString):
     modeList = writeResult(HashID().identifyHash(hashString), outfile=None, hashcatMode=True)
