@@ -1,6 +1,7 @@
 import speech_recognition as sr
 import os
 import time
+from playsound import playsound
 
 
 def takecmd(callExceptions=False) -> str:
@@ -8,7 +9,7 @@ def takecmd(callExceptions=False) -> str:
     r.energy_threshold = 2000
     with sr.Microphone(sample_rate=48000, chunk_size=2048) as source:
         print('Listening...')
-        audio = r.listen(source)
+        audio = r.listen(source, phrase_time_limit=5)
     try:
         print('Recognizing...\n')
         recognized_data = r.recognize_google(audio, language='en-in').lower()
@@ -16,6 +17,8 @@ def takecmd(callExceptions=False) -> str:
             if recognized_data == 'sophie' or recognized_data == 'rivera':
                 print("------------------------------------------------------")
                 print('Rivera Listening...')
+                playsound('Essentials\static\wake-up-beep.wav')
+
 
                 with sr.Microphone(sample_rate=48000, chunk_size=2048) as source:
                     audio = r.listen(source)
@@ -24,7 +27,7 @@ def takecmd(callExceptions=False) -> str:
                 print(data)
                 return data
             else:
-                return "Nothing To See Here"
+                return "callExceptions Is False"
         else:
             return recognized_data
     except Exception:

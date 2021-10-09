@@ -38,7 +38,7 @@ class Task:
             empz2 = 'Okay would you like me to play anything special?'
             speakEmpz = random.choice([empz1, empz2])
             speak(speakEmpz)
-            spec = takecmd()
+            spec = takecmd(callExceptions=True)
             if 'choreography on' in spec or 'choreography of' in spec or 'choreography by' in spec:
                 cmdToFilters = ['choreography on', 'choreography of', 'yeah']
                 data = UserInputFilter(spec, cmdToFilters).strip()

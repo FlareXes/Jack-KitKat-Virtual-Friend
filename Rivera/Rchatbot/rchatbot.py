@@ -3,9 +3,9 @@ def category(UserInput: str) -> str:
 
     # 1. Filter
     categories = {
-        'music': ['can', 'have', 'music', 'play', 'songs', 'song'],
+        'music': ['music', 'play', 'songs', 'song'],
         'privesc': ['escalate', 'privileges', 'the'],
-        'joke': ['joke', 'jokes', 'can', 'crack', 'have'],
+        'joke': ['joke', 'jokes', 'crack'],
         'nmap': ['nmap', 'scan', 'ports', 'open', 'perform', 'network'],
         'dirb': ['directory', 'brute', 'force', 'hidden', 'dirbuster', 'gobuster']}
 
@@ -33,10 +33,10 @@ def importcoroutine():
     from Essentials.DataFilters import wakeandsleep
 
     lemmatizer = WordNetLemmatizer()
-    model = load_model('C:\\Users\\as808\\OneDrive\\Documents\\KitKat\\Rivera\\Rchatbot\\chatbot_model.h5')
-    intents = json.loads(open('C:\\Users\\as808\\OneDrive\\Documents\\KitKat\\Rivera\\Rchatbot\\intents.json').read())
-    words = pickle.load(open('C:\\Users\\as808\\OneDrive\\Documents\\KitKat\\Rivera\\Rchatbot\\mywords.pkl', 'rb'))
-    classes = pickle.load(open('C:\\Users\\as808\\OneDrive\\Documents\\KitKat\\Rivera\\Rchatbot\\myclasses.pkl', 'rb'))
+    model = load_model('Rivera\\Rchatbot\\chatbot_model.h5')
+    intents = json.loads(open('Rivera\\Rchatbot\\intents.json').read())
+    words = pickle.load(open('Rivera\\Rchatbot\\mywords.pkl', 'rb'))
+    classes = pickle.load(open('Rivera\\Rchatbot\\myclasses.pkl', 'rb'))
     while True:
         text = (yield)
         cat = category(text)
