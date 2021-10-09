@@ -5,5 +5,3 @@ def exec_():
     subprocess.run(['dirb', target, '-f'])
 
 # target = "http://testphp.vulnweb.com/"
-
-exec_()

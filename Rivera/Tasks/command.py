@@ -98,6 +98,7 @@ class Task:
                 from Rivera.Rchatbot.rchatbot import category
                 while True:
                     UserInput = takecmd()
+                    print(UserInput)
                     cat = category(UserInput)
                     
                     if "know anything" in UserInput:
@@ -115,7 +116,7 @@ class Task:
                         hashString = input("\nHash: ")
                         hashcat.crackHash(hashString)
                     else:
-                        speak("I don't know that")
+                        print("I don't know that - priv section")
 
 
 

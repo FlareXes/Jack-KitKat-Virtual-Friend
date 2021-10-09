@@ -14,10 +14,10 @@ def takecmd(callExceptions=False) -> str:
         print('Recognizing...\n')
         recognized_data = r.recognize_google(audio, language='en-in').lower()
         if callExceptions == False:
-            if recognized_data == 'sophie' or recognized_data == 'rivera':
+            if 'sophie' in recognized_data or 'rivera' in recognized_data or 'jack' in recognized_data:
                 print("------------------------------------------------------")
                 print('Rivera Listening...')
-                playsound('Essentials\static\wake-up-beep.wav')
+                playsound('Essentials/static/wake-up-beep.wav')
 
 
                 with sr.Microphone(sample_rate=48000, chunk_size=2048) as source:
@@ -29,6 +29,7 @@ def takecmd(callExceptions=False) -> str:
             else:
                 return "callExceptions Is False"
         else:
+            print(recognized_data)
             return recognized_data
     except Exception:
         print('\nI Didn\'t Got YOU\n')
